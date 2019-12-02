@@ -43,22 +43,22 @@ function daBears() {
 // Which function(s) access the "chair" variable and get "Too Big!"
 // (Delete wrong answers, leave correct ones)
 
-var fairyTale1 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
+var fairyTale1 = ["papaBear", "mamaBear", "babyBear"];
 
 // Which function(s) access the "feeling" variable and get "Hungry"
 // (Delete wrong answers, leave correct ones)
 
-var fairyTale2 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
+var fairyTale2 = ["goldilocks"];
 
 // Which function(s) access the "porridge" variable and get "Too Cold!"
 // (Delete wrong answers, leave correct ones)
 
-var fairyTale3 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
+var fairyTale3 = [ "papaBear", "mamaBear"];
 
 // Which function(s) access the "sleepy" variable and get undefined
 // (Delete wrong answers, leave correct ones)
 
-var fairyTale4 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
+var fairyTale4 = [];
 
 // Which function(s) access the isFurry variable and get true
 // (Delete wrong answers, leave correct ones)
@@ -73,15 +73,31 @@ var fairyTale5 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
 // Write a constructor function called Vehicle.  Vehicle should have a property
 // called gasRemaining that is equal to 100.
 
+var Vehicle = function(){
+    this.gasRemaining = 100;
+}
+
 // Next, assign a function called drive to the Vehicle prototype.  When invoked,
 // drive should subtract 25 from the gasRemaining property of any Vehicle your constructor
 // function creates.
+
+Vehicle.prototype.drive(){
+    this.gasRemaining = this.gasRemaining - 25;
+}
 
 // Create 2 new Vehicles with the constructor function you made: one called "charger",
 // the other called "mustang".  Using implicit context, invoke the drive method on
 // "charger" once, and invoke it twice on "mustang".
 
 // CODE HERE...
+
+var charger = new Vehicle();
+var mustang = new Vehicle
+
+charger.drive();
+mustang.drive();
+mustang.drive();
+
 
 
 
@@ -109,6 +125,23 @@ var fairyTale5 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
 
 // CODE HERE...
 
+String.prototype.grammarPolice(str){
+    var arr = str.split(' ');
+    for (var i = 0; i < arr.length; i++) {
+
+        //use regex instead for non alphanumeric chars
+
+        if (typeof arr[i][0] !== "number" && typeof arr[i][0] !== "," ){
+           arr[i][0].toUpperCase() 
+        }
+        
+    }
+
+    str = arr.join(" ");
+
+    return str
+}
+
 
 
 // *************
@@ -126,6 +159,90 @@ var fairyTale5 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
 // In all other cases, return "Different values"
 
 // CODE HERE...
+
+function valueType (arg1, arg2){
+
+    var condition1 = typeof arg1
+    var condtion2 = typeof arg1
+
+
+    if (condition1 === condtion2 && typeof arg1 === "string") {
+        if (arg1 === arg2) {
+            return "Exactly the same"
+        }
+    }
+
+     if (condition1 === condtion2 && typeof arg1 === "number") {
+        if (arg1 === arg2) {
+            return "Exactly the same"
+        }
+    }
+
+    if (Arra.isArray(arg2) && Arra.isArray(arg1)) {
+
+        if (arg1.length !== arg1.length) {
+            return "Different values"
+        }
+
+        for (var i = 0; i < arg1.length; i++) {
+            var isEqual
+            if (arg1[i] !== arg2[i]){
+                return "Different values"
+            } 
+        }
+
+        return "Exactly the same"
+
+    }
+
+    if (+arg2 && +arg2 && (+arg2 === +arg2)){
+        return "Same value, different types"
+    }
+
+
+    if (condition1 === "object" && condition2 === "object") {
+
+        if (Object.keys(arg1).length!== Object.keys(arg2).length){
+        return "Different values"
+        }
+
+
+
+        for(var key in arg1){
+
+            if(arg1[key] !== arg2[key]){
+                return "Different values"
+            }
+
+        }
+
+        return "Exactly the same"
+
+    }
+
+    if ((Array.isArray(arg1) && Array.isArray(arg2)=== false){
+        ///loop through and return different if not equal
+
+        //otherwise return "Same value, different types"
+
+
+
+    }
+
+    if (Array.isArray(arg2) && Array.isArray(arg1)=== false)) {
+
+        ///loop through and return different if not equal
+
+        //otherwise return "Same value, different types"
+
+
+    }
+
+    
+
+    return "Different values"
+   
+}
 
 // *************
 // * PROBLEM 5 *
@@ -153,6 +270,8 @@ function large() {
 }
   // CODE HERE...
 
+  var boundToElephant = large.bind(elephant)
+
 // *************
 // * PROBLEM 6 *
 // *************
@@ -164,6 +283,13 @@ function large() {
 // and return the bound function.
 
 // CODE HERE...
+
+function deathStar(capacity, crew){
+
+   var fn = capacity.bind(crew);
+
+   return fn
+}
 
 
 // *************
@@ -178,3 +304,15 @@ function large() {
 // The closure function will return the combined value of assets and liabilities.
 
 // CODE HERE...
+
+
+function accountingOffice (assets){
+
+    var closureVar = assets;
+
+    return function (liabilities){
+        return closureVar - liabilities
+    }
+
+
+}
